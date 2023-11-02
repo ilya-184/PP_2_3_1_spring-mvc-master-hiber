@@ -21,23 +21,31 @@ public class UserDaoImpl implements UserDao{
 
     }
 
-//    @Override
-//    public void createUser(User user) {
-//
-//    }
-//
-//    @Override
-//    public void updateUser(User user) {
-//
-//    }
-//
-//    @Override
-//    public User readUser(long id) {
-//        return null;
-//    }
-//
-//    @Override
-//    public User deleteUser(long id) {
-//        return null;
-//    }
+    @Override
+    public void createUser(User user) {
+        em.persist(user);
+        em.flush();
+    }
+
+    @Override
+    public void updateUser(User user) {
+        em.merge(user);
+        em.flush();
+    }
+
+    @Override
+    public User readUser(long id) {
+        return em.find(User.class, id);
+    }
+
+    @Override
+    public User deleteUser(long id) {
+        User user = readUser(id);
+        if (user == null) {
+            throw new NullPointerException("User not found");
+        }
+        em.remove(user);
+        em.flush();
+        return user;
+    }
 }

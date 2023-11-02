@@ -3,6 +3,8 @@ package web.model;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
 
 @Entity
@@ -15,12 +17,15 @@ public class User {
     private Long id;
 
     @Column(name = "name")
+    @NotEmpty(message = "Name shouldn't be empty")
     private String name;
 
     @Column(name = "surname")
+    @NotEmpty(message = "Surname shouldn't be empty")
     private String surname;
 
     @Column(name = "age")
+    @Min(value = 0, message = "Age should be greater 0")
     private int age;
 
 

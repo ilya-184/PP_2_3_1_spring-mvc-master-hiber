@@ -11,8 +11,8 @@ public interface UserService {
 
     List<User> getAllUsers();
 
-//    void createUser(User user);
-//
+    void createUser(User user);
+
 //    void updateUser(User user);
 //
 //    User readUser(long id);

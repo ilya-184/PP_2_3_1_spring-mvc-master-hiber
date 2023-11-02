@@ -1,4 +1,4 @@
-package web_hibernate.config;
+package web.config;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +17,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+
 import javax.sql.DataSource;
 import java.util.Properties;
 
@@ -34,7 +35,7 @@ public class AppConfig {
         LocalContainerEntityManagerFactoryBean factoryBean
                 = new LocalContainerEntityManagerFactoryBean();
         factoryBean.setDataSource(getDataSource());
-        factoryBean.setPackagesToScan("web_hibernate");
+        factoryBean.setPackagesToScan("web");
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         factoryBean.setJpaVendorAdapter(vendorAdapter);

@@ -12,6 +12,8 @@
     }
 </style>
 <body>
+<h2>Table of User</h2>
+<br>
 <div>
     <table>
         <tr>
@@ -19,7 +21,7 @@
             <th>Name</th>
             <th>Surname</th>
             <th>Age</th>
-            <>
+            <th>Actions</th>
         </tr>
         <tr th:each = "list : ${users}">
             <td th:utext="${list.getId()}">...</td>
@@ -28,6 +30,13 @@
             <td th:utext="${list.getAge()}">...</td>
         </tr>
     </table>
+
+    <br>
+
+    <form method="GET" action="/new-user">
+        <button type="submit">Add user</button>
+    </form>
+
 </div>
 </body>
 </html>

@@ -25,10 +25,11 @@ public class UserServiceImpl implements UserService {
         return userDao.getAllUsers();
     }
 
-//    @Override
-//    public void createUser(User user) {
-//        userDao.createUser(user);
-//    }
+    @Transactional
+    @Override
+    public void createUser(User user) {
+        userDao.createUser(user);
+    }
 //
 //    @Override
 //    public void updateUser(User user) {
