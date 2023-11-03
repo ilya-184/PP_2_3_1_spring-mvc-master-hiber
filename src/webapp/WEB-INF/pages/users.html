@@ -28,12 +28,24 @@
             <td th:utext="${list.getName()}">...</td>
             <td th:utext="${list.getSurname()}">...</td>
             <td th:utext="${list.getAge()}">...</td>
+            <td>
+                <form action="#" th:action="@{/{id}(id=${list.getId()})}" method="get">
+                    <button type="submit">
+                        <i>Update</i>
+                    </button>
+                </form>
+            </td>
+
+
+<!--            <td><input type="hidden" th:value="@{/users/{id}(id=${list.getId()})}" name="deviceIP"/><button type="submit" name="upd" value="update">Update</button></td>-->
+
+
         </tr>
     </table>
 
     <br>
 
-    <form method="GET" action="/new-user">
+    <form method="GET" action="/users/new-user">
         <button type="submit">Add user</button>
     </form>
 
