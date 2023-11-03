@@ -29,9 +29,17 @@
             <td th:utext="${list.getSurname()}">...</td>
             <td th:utext="${list.getAge()}">...</td>
             <td>
-                <form action="#" th:action="@{/{id}(id=${list.getId()})}" method="get">
+                <form action="#" th:action="@{/{id}/edit(id=${list.getId()})}" method="patch">
                     <button type="submit">
                         <i>Update</i>
+                    </button>
+                </form>
+            </td>
+
+            <td>
+                <form action="#" th:action="@{/{id}/delete(id=${list.getId()})}" method="DELETE">
+                    <button type="submit">
+                        <i>Delete</i>
                     </button>
                 </form>
             </td>
