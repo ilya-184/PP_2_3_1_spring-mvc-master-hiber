@@ -32,14 +32,14 @@ public class UserController {
 		return "users";
 	}
 
-	@GetMapping("/new")
+	@GetMapping("/new-user")
 	public String addNewUser(Model model) {
 		model.addAttribute("user", new User());
 		return "new-user";
 	}
 
 	@PostMapping()
-	public String saveUser(@ModelAttribute("user") @Valid User user,
+	public String saveUser(@ModelAttribute("user") User user,
 							 BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
 			return "new-user";
